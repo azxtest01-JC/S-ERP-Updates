@@ -1,0 +1,8 @@
+{
+  "app_name": "S-ERP",
+  "latest_version": "0.2.7.26",
+  "package_url": "https://github.com/azxtest01-JC/S-ERP-Updates/releases/download/v0.2.7.26/S-ERP-v0.2.7.26-Windows-preview.zip",
+  "sha256": "b5f24b90f1d054346d9e68e2f4aa636821f403423821693db82ee2e995b7375a",
+  "release_notes": "新增資料庫模組：安馳科技－測試區（ancher-test-area），沿用既有共用匯入、檢視、刪除、清空與 Database Package 行為。",
+  "published_at": "2026-07-27T21:51:01+08:00"
+}

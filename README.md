@@ -6,7 +6,7 @@
 
 目前它**不是 S-ERP 應用程式的原始碼 Repository**。S-ERP 原始碼維護於另一個未公開的 Repository；本 Repository 無法用來了解該應用程式的完整架構、功能完成度或開發進度。
 
-目前 Repository 的 Git 追蹤內容只有本 README，因此此更新通道仍處於尚未放入更新檔案的初始狀態。
+目前 Repository 以 `manifest.json` 提供最新正式更新資訊；完整 Windows Release ZIP 仍只放在對應 GitHub Release 資產，不納入 Git 追蹤。
 
 ## Repository 目前內容
 
@@ -16,7 +16,7 @@
 | S-ERP 原始碼 | 未包含 |
 | Python 程式 | 未包含 |
 | 設定檔（JSON／YAML） | 未包含 |
-| 更新程式或更新清單 | 未包含 |
+| 更新清單 | `manifest.json`（目前版本、下載網址、SHA-256、說明與發布時間） |
 | Assets | 未包含 |
 | GitHub Actions 工作流程 | 未包含 |
 | Build Script 或 requirements 檔 | 未包含 |
@@ -28,8 +28,8 @@ Repository 的 Git 檔案與 GitHub Release 資產是不同的發布位置：
 
 | 項目 | 目前可確認狀態 |
 | --- | --- |
-| Repository 檔案 | 僅有 `README.md` |
-| GitHub Release 資產 | 不屬於 Git 追蹤檔案；本 Repository 目前沒有檔案可列出任何發布包或資產內容 |
+| Repository 檔案 | `README.md`、`manifest.json` |
+| GitHub Release 資產 | 不屬於 Git 追蹤檔案；完整 Windows ZIP 與同內容 `manifest.json` 由 GitHub Release 提供 |
 | Python Runtime | 未包含於 Repository |
 | EXE | 未包含於 Repository |
 | Windows 更新包 | 未包含於 Repository |
@@ -39,13 +39,14 @@ Repository 的 Git 檔案與 GitHub Release 資產是不同的發布位置：
 
 ## 目前更新機制
 
-此 Repository 目前未包含更新清單、更新程式、工作流程或發布設定。因此，僅依本 Repository 可確認：它是更新發布通道的預定位置；無法確認或描述任何已實作的更新檢查、下載、驗證、安裝或回復流程。
+S-ERP 使用其 `version.json` 指向的 GitHub Release latest-download `manifest.json` 檢查更新。Manifest 提供最新版、完整 ZIP 下載網址、SHA-256、更新說明與發布時間；客戶端僅在使用者確認後下載並驗證 ZIP。完整更新套用、備份與回復行為由 S-ERP 原始碼 Repository 的 Launcher／Updater 實作，不在本 Repository 重複保存原始碼。
 
 ## 目前專案架構
 
 ```text
 S-ERP-Updates/
-└── README.md
+├── README.md
+└── manifest.json
 ```
 
 `.git/` 為本機 Git 管理資料，不是專案發布內容。
@@ -56,16 +57,17 @@ S-ERP-Updates/
 | --- | --- |
 | 公開更新通道 Repository | 已建立 |
 | Repository 說明文件 | 已提供 |
-| 更新檔案與更新清單 | 尚未包含於 Repository |
+| 更新清單 | 已提供 `manifest.json` |
+| 完整更新 ZIP | 由 GitHub Release 資產提供，不納入 Git |
 | 自動化發布或建置設定 | 尚未包含於 Repository |
 | S-ERP 應用程式原始碼 | 不在此 Repository |
 
 ## Developer Notes
 
 - 此 Repository 的目的，是作為 S-ERP 公開更新發布通道，而非應用程式開發 Repository。
-- 目前唯一可閱讀的專案檔案是 `README.md`；不存在程式入口、Build 流程或 GitHub Actions 可供執行或修改。
-- 本 Repository 未提供更新流程實作；任何更新流程的實際行為必須由包含該程式的 Repository 或特定 Release 資產確認。
-- GitHub 在此 Repository 的用途目前僅能確認為託管此公開更新通道 Repository。未發現任何已提交的發布自動化設定。
+- `manifest.json` 是本更新通道的最新更新資訊來源；Release 前必須使其版本、ZIP 檔名、下載網址與 SHA-256 一致。
+- 本 Repository 不包含更新程式實作；套用、備份與回復行為必須由 S-ERP 原始碼 Repository 的 Launcher／Updater 確認。
+- GitHub 在此 Repository 用於託管更新資訊與 Release 資產；目前未發現已提交的發布自動化設定。
 
 ## 驗證範圍
 

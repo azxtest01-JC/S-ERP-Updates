@@ -1,8 +1,8 @@
 {
   "app_name": "S-ERP",
-  "latest_version": "0.2.7.26",
-  "package_url": "https://github.com/azxtest01-JC/S-ERP-Updates/releases/download/v0.2.7.26/S-ERP-v0.2.7.26-Windows-preview.zip",
-  "sha256": "b5f24b90f1d054346d9e68e2f4aa636821f403423821693db82ee2e995b7375a",
-  "release_notes": "新增資料庫模組：安馳科技－測試區（ancher-test-area），沿用既有共用匯入、檢視、刪除、清空與 Database Package 行為。",
-  "published_at": "2026-07-27T21:51:01+08:00"
+  "latest_version": "0.2.8.8",
+  "package_url": "https://github.com/azxtest01-JC/S-ERP-Updates/releases/download/v0.2.8.8/S-ERP-v0.2.8.8-update.zip",
+  "sha256": "553180f24e3ed0f4ab7ee170b7125167013567057a5df32fe641dd355e501ce8",
+  "release_notes": "修正 Restore／Excel 匯入完成時百分比文字已到 100% 但 Progress Bar 尚未跑滿的 UI 時序；完成流程加入 Finalization 狀態、transitionend 與 timeout fallback，並阻止舊 Timer／Callback 回寫低於 100%。",
+  "published_at": "2026-08-10T22:51:10+08:00"
 }
